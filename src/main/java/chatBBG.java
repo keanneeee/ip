@@ -2,7 +2,7 @@ public class chatBBG {
 
     public static void main(String[] args) {
         printWelcomeMessage();
-        Task.initializeArray();
+        //Task.initializeArray();
         Functions.readUserInput();
     }
 
