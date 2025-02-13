@@ -7,10 +7,9 @@ import java.util.Arrays;
 public class Task {
     //protected static ArrayList<Task> tasks; //stores objects of type Task
     protected static Task[] tasks = new Task[100];
-    public static int totalTasks;
-    protected String desc;
-    protected boolean isDone;
-
+    public static int totalTasks = 0;
+    protected  String desc;
+    protected static boolean isDone;
     protected String type;
 
 //    public static void initializeArray(){
@@ -23,34 +22,41 @@ public class Task {
         //this.type = "T";
     }
 
-    public String getMark(){
+    public static String getMark(){
         return isDone ? "X" : " ";
     }
 
     public static void printTasks() {
         System.out.println("here are your tasks: ");
         int index = 1;
-        for (int i = 0; i < totalTasks;  i ++){
-            System.out.println(index + ". " + Task.tasks[i]);
+        for (int i = 0; i < totalTasks;  i++){
+            System.out.println(index + ". " + tasks[i].toString());
             index++;
         }
     }
 
     public static void modifyTaskTick(int index, String line){
         if (line.startsWith("mark")){
-            tasks[index - 1].isDone = true;
+            tasks[index].isDone = true;
             printMarked(index, line);
+        } else if (line.startsWith("unmark")){
+            tasks[index].isDone = false;
+            printMarked(index, line);
+        } else if (line.startsWith("delete")){
+            System.out.println("deleted it for ya :)");
+            System.out.println(tasks[index].toString());
+            tasks[index] = null;
+            totalTasks--;
         }
     }
 
     public static void printMarked(int index, String line){
         if (line.startsWith("mark")){
             System.out.println("marked it for ya <3");
-            System.out.println(tasks[index - 1].toString());
-        }
-        else {
+            System.out.println(tasks[index].toString());
+        } else if (line.startsWith("unmark")){
             System.out.println("unmarked it for ya ;)");
-            System.out.println(tasks[index - 1].toString());
+            System.out.println(tasks[index].toString());
         }
     }
 
