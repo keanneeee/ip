@@ -1,3 +1,7 @@
+package chatbbg.tasktypes;
+import java.lang.Exception;
+import chatbbg.Extractor;
+import Exceptions.EmptyTodoException;
 
 public class Todo extends Task {
     public Todo (String desc) {
@@ -19,8 +23,11 @@ public class Todo extends Task {
         return type + super.toString();
     }
 
-    public static void addTodo (String input){
+    public static void addTodo (String input) throws EmptyTodoException {
         String description = input.substring("todo".length()).trim();
+        if (description.isEmpty()) {
+            throw new EmptyTodoException();
+        }
         Task.tasks[totalTasks] = new Todo(description);
         Task.totalTasks++;
         Todo.printTodo(Task.tasks[totalTasks - 1].desc);

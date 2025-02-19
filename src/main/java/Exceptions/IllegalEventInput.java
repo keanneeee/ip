@@ -1,4 +1,5 @@
 package Exceptions;
 
-public class IllegalEventInput {
+public class IllegalEventInput extends Exception{
+
 }

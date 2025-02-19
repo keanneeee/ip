@@ -1,4 +1,4 @@
 package Exceptions;
 
-public class IllegalDeadlineInput {
+public class IllegalDeadlineInput extends Exception{
 }
