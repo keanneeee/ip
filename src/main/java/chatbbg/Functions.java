@@ -23,32 +23,36 @@ public class Functions extends Task{
                 System.out.println("What are ya tryna say babe");
             } else if (line.equalsIgnoreCase("list")){
                 Task.printTasks();
-            } else if (line.contains("mark")||line.contains("unmark")||line.contains("delete")) {
+            } else if (line.startsWith("mark")||line.startsWith("unmark")||line.startsWith("delete")) {
                 try {
                     int indexM = Extractor.extractTaskNumber(line);//index of task to be marked
                     Task.modifyTaskTick(indexM - 1, line);
                 } catch (IndexOutOfBoundsException e){
                     System.out.println("bro your number not even in the list");
                     System.out.println(">:(");
-                }
-                catch (noTaskNum e) {
+                } catch (NumberFormatException e){
+                    System.out.println("bro you need to enter a number");
+                    System.out.println(">:(");
+                } catch (noTaskNum e) {
                     System.out.println(">:(");
                 }
-            } else if (line.contains("deadline")){
+            } else if (line.startsWith("deadline")){
                 Deadline.addDeadline(line);
-            } else if (line.contains("todo")){
+            } else if (line.startsWith("todo")){
                try {
                    Todo.addTodo(line);
                } catch (EmptyTodoException e){
                      System.out.println(">:(");
                 }
-            } else if (line.contains("event")) {
+            } else if (line.startsWith("event")) {
                 Event.addEvent(line);
             } else {
-                Task.tasks[index] = new Task(line);
-                Task.totalTasks++;
-                index++;
+                System.out.println("Please enter a valid command");
+
             }
+//                Task.tasks[index] = new Task(line);
+//                Task.totalTasks++;
+//                index++;
             line = in.nextLine();
 
         }

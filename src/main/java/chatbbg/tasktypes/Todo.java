@@ -14,7 +14,7 @@ public class Todo extends Task {
     }
 
     public static void printTodo (String todo){
-        System.out.println("gotchu x, this TODO task was added to the list: ");
+        System.out.println("got you x, this TODO task was added to the list: ");
         System.out.println("[T][ ] " + todo);
         System.out.println("anything else?");
     }

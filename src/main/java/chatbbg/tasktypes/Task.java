@@ -34,7 +34,9 @@ public class Task {
     }
 
     public static void modifyTaskTick(int index, String line) throws IndexOutOfBoundsException {
-        if (line.startsWith("mark")){
+        if (totalTasks < index|| tasks[index] == null){
+            throw new IndexOutOfBoundsException();
+        } else if (line.startsWith("mark")){
             tasks[index].isDone = true;
             printMarked(index, line);
         } else if (line.startsWith("unmark")){
@@ -45,13 +47,13 @@ public class Task {
             System.out.println(tasks[index].toString());
             tasks[index] = null;
             totalTasks--;
-        } else if (totalTasks < index){
-            throw new IndexOutOfBoundsException();
         }
     }
 
-    public static void printMarked(int index, String line){
-        if (line.startsWith("mark")){
+    public static void printMarked(int index, String line) throws IndexOutOfBoundsException {
+        if (totalTasks < index|| tasks[index] == null){
+            throw new IndexOutOfBoundsException();
+        }else if (line.startsWith("mark")){
             System.out.println("marked it for ya <3");
             System.out.println(tasks[index].toString());
         } else if (line.startsWith("unmark")){
