@@ -10,8 +10,8 @@ public class Task {
     protected static boolean isDone;
     protected String type;
 
-//    public static void initializeArray(){
-//        tasks = new ArrayList<>();
+//   public static void initializeArray(){
+//       tasks = new ArrayList<>();
 //    }
 
     public Task(String desc){

@@ -48,11 +48,7 @@ public class Functions extends Task{
                 Event.addEvent(line);
             } else {
                 System.out.println("Please enter a valid command");
-
             }
-//                Task.tasks[index] = new Task(line);
-//                Task.totalTasks++;
-//                index++;
             line = in.nextLine();
 
         }
