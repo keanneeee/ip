@@ -1,4 +1,12 @@
+package chatbbg;
+
+import chatbbg.tasktypes.Deadline;
+import chatbbg.tasktypes.Event;
+import chatbbg.tasktypes.Todo;
+import chatbbg.tasktypes.Task;
 import java.util.Scanner;
+import Exceptions.EmptyTodoException;
+import Exceptions.noTaskNum;
 
 public class Functions extends Task{
 
@@ -16,12 +24,24 @@ public class Functions extends Task{
             } else if (line.equalsIgnoreCase("list")){
                 Task.printTasks();
             } else if (line.contains("mark")||line.contains("unmark")||line.contains("delete")) {
-                int indexM = Extractor.extractTaskNumber(line);//index of task to be marked
-                Task.modifyTaskTick(indexM - 1, line);
+                try {
+                    int indexM = Extractor.extractTaskNumber(line);//index of task to be marked
+                    Task.modifyTaskTick(indexM - 1, line);
+                } catch (IndexOutOfBoundsException e){
+                    System.out.println("bro your number not even in the list");
+                    System.out.println(">:(");
+                }
+                catch (noTaskNum e) {
+                    System.out.println(">:(");
+                }
             } else if (line.contains("deadline")){
                 Deadline.addDeadline(line);
             } else if (line.contains("todo")){
-               Todo.addTodo(line);
+               try {
+                   Todo.addTodo(line);
+               } catch (EmptyTodoException e){
+                     System.out.println(">:(");
+                }
             } else if (line.contains("event")) {
                 Event.addEvent(line);
             } else {

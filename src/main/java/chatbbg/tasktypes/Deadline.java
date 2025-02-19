@@ -1,3 +1,7 @@
+package chatbbg.tasktypes;
+import Exceptions.IllegalDeadlineInput;
+import chatbbg.Extractor;
+
 public class Deadline extends Task {
     protected String by;
 
@@ -23,10 +27,15 @@ public class Deadline extends Task {
     }
 
     public static void addDeadline(String input){
-        String description = Extractor.extractTaskNameDeadline(input);
-        String end = Extractor.extractTaskDeadline(input);
-        Task.tasks[totalTasks] = new Deadline(description, end);
-        Task.totalTasks++;
-        Deadline.printDeadline(description, end);
+        try {
+            String description = Extractor.extractTaskNameDeadline(input);
+            String end = Extractor.extractTaskDeadline(input);
+            Task.tasks[totalTasks] = new Deadline(description, end);
+            Task.totalTasks++;
+            Deadline.printDeadline(description, end);
+        } catch (IllegalDeadlineInput e){
+            System.out.println("Invalid Input for Deadline. Ensure that format follows " +
+                    "deadline [task] [/by]");
+        }
     }
 }

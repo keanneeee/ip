@@ -1,8 +1,6 @@
-import java.io.FileWriter;
-import java.io.IOException;
+package chatbbg.tasktypes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import Exceptions.noTaskNum;
 
 public class Task {
     //protected static ArrayList<Task> tasks; //stores objects of type Task
@@ -35,7 +33,7 @@ public class Task {
         }
     }
 
-    public static void modifyTaskTick(int index, String line){
+    public static void modifyTaskTick(int index, String line) throws IndexOutOfBoundsException {
         if (line.startsWith("mark")){
             tasks[index].isDone = true;
             printMarked(index, line);
@@ -47,6 +45,8 @@ public class Task {
             System.out.println(tasks[index].toString());
             tasks[index] = null;
             totalTasks--;
+        } else if (totalTasks < index){
+            throw new IndexOutOfBoundsException();
         }
     }
 

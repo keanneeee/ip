@@ -1,3 +1,6 @@
+package chatbbg.tasktypes;
+import chatbbg.Extractor;
+import Exceptions.IllegalEventInput;
 public class Event extends Task{
 
     protected String start;
@@ -29,11 +32,16 @@ public class Event extends Task{
     }
 
     public static void addEvent(String input){
-        String description = Extractor.extractTaskNameEvent(input);
-        String start = Extractor.extractTaskEventStart(input);
-        String end = Extractor.extractTaskEventEnd(input);
-        Task.tasks[totalTasks] = new Event(description, start, end);
-        Task.totalTasks++;
-        Event.printEvent(description, start, end);
+        try {
+            String description = Extractor.extractTaskNameEvent(input);
+            String start = Extractor.extractTaskEventStart(input);
+            String end = Extractor.extractTaskEventEnd(input);
+            Task.tasks[totalTasks] = new Event(description, start, end);
+            Task.totalTasks++;
+            Event.printEvent(description, start, end);
+        } catch (IllegalEventInput e) {
+            System.out.println("Invalid Input for Event. Ensure that format follows " +
+            "event [task] [/from] [/to]");
+        }
     }
 }
