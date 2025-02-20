@@ -30,7 +30,7 @@ public class Deadline extends Task {
         try {
             String description = Extractor.extractTaskNameDeadline(input);
             String end = Extractor.extractTaskDeadline(input);
-            Task.tasks[totalTasks] = new Deadline(description, end);
+            Task.tasks.add(new Deadline(description, end));
             Task.totalTasks++;
             Deadline.printDeadline(description, end);
         } catch (IllegalDeadlineInput e){
