@@ -1,9 +1,18 @@
 package chatbbg;
+
+import java.io.IOException;
+
+import chatbbg.tasktypes.Task;
+
 public class chatBBG {
 
     public static void main(String[] args) {
+        Storage.createFileDirectory();
+        Storage.createOrReadOutputFile();
         printWelcomeMessage();
-        //Task.initializeArray();
+        if(Task.totalTasks == 0) {
+            Task.initializeArray();
+        }
         Functions.readUserInput();
     }
 
@@ -14,5 +23,12 @@ public class chatBBG {
 
     public static void goodbye(){
         System.out.println("Shutting down...");
+        try {
+            System.out.println("Saving tasks to file...");
+            Task.writeToFile();
+            System.out.println("Tasks saved successfully");
+        } catch (IOException e) {
+            System.out.println("Error writing to file" + e.getMessage());
+        }
     }
 }

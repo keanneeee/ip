@@ -28,8 +28,8 @@ public class Todo extends Task {
         if (description.isEmpty()) {
             throw new EmptyTodoException();
         }
-        Task.tasks[totalTasks] = new Todo(description);
+        Task.tasks.add(new Todo(description));
         Task.totalTasks++;
-        Todo.printTodo(Task.tasks[totalTasks - 1].desc);
+        Todo.printTodo(Task.tasks.get(totalTasks - 1).desc);
     }
 }
