@@ -76,8 +76,8 @@ public class Storage {
         }
 
         if (parts[1].trim().equals("1")) {
-            command = "mark " + iteration + 1;
-            Task.modifyTaskTick(iteration + 1, command);
+            command = "mark " + iteration;
+            Task.modifyTaskTick(iteration, command);
         }
     }
 }

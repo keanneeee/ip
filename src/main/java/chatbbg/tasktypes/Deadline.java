@@ -18,7 +18,7 @@ public class Deadline extends Task {
 
     public static void printDeadline(String deadline, String end){
         System.out.println("gotchu x, this DEADLINE task was added to the list:");
-        System.out.println("[D][ ]" + deadline + "(by: " + end + ")");
+        System.out.println("[D][ ] " + deadline + "(by: " + end + ")");
         System.out.println("anything else?");
     }
 

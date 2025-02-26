@@ -36,7 +36,7 @@ public class Extractor {
         } else if (input.substring(input.indexOf(keyword) + 4).isEmpty()||input.substring(8).isEmpty()) {
             throw new IllegalDeadlineInput();
         }
-        return input.substring(8, input.indexOf(keyword));
+        return input.substring(9, input.indexOf(keyword));
     }
 
     public static String extractTaskDeadline(String input) {
