@@ -21,6 +21,12 @@ public class Event extends Task{
         return end;
     }
 
+    /**
+     * Prints the Event task that was added to the list
+     * @param Event the Event task that was added
+     * @param start the start date of the Event task
+     * @param end the end date of the Event task
+     */
     public static void printEvent(String Event, String start, String end){
         System.out.println("gotchu x, this EVENT task was added to the list:");
         System.out.println("[E][ ] " + Event + "(from: " + start + " to " + end + ")");
@@ -31,6 +37,10 @@ public class Event extends Task{
         return type + super.toString().trim() + "(from: " + start + " to " + end + ")";
     }
 
+    /**
+     * Adds an Event task to the list of tasks
+     * @param input user input
+     */
     public static void addEvent(String input){
         try {
             String description = Extractor.extractTaskNameEvent(input);

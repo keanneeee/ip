@@ -16,6 +16,11 @@ public class Deadline extends Task {
         return by;
     }
 
+    /**
+     * Prints the Deadline task that was added to the list
+     * @param deadline the Deadline task that was added
+     * @param end the end date of the Deadline task
+     */
     public static void printDeadline(String deadline, String end){
         System.out.println("gotchu x, this DEADLINE task was added to the list:");
         System.out.println("[D][ ] " + deadline + "(by: " + end + ")");
@@ -26,6 +31,10 @@ public class Deadline extends Task {
         return type + super.toString().trim() + "(by: " + by + ")";
     }
 
+    /**
+     * Adds a Deadline task to the list of tasks
+     * @param input user input
+     */
     public static void addDeadline(String input){
         try {
             String description = Extractor.extractTaskNameDeadline(input);

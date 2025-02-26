@@ -37,6 +37,12 @@ public class Task {
         }
     }
 
+    /**
+     * Modifies the isDone attribute of the task at the specified index and handles the deletion of the tasks
+     * @param index index of the task to be modified
+     * @param line user input
+     * @throws IndexOutOfBoundsException if user inputs an index that is out of bounds
+     */
     public static void modifyTaskTick(int index, String line) throws IndexOutOfBoundsException {
 
         if (line.startsWith("mark")) {
@@ -54,6 +60,10 @@ public class Task {
         }
     }
 
+    /**
+     * removes the task from the list and updates the total number of tasks
+     * @param index index of the task to be removed
+     */
     public static void printDelete(int index) {
         System.out.println("deleted it for ya :)");
         System.out.println(tasks.get(index).toString());
@@ -62,6 +72,11 @@ public class Task {
         System.out.println("Now there are " + totalTasks + " tasks in the list.");
     }
 
+    /**
+     * Prints the task that is modified
+     * @param index index of the task to be modified
+     * @param line user input
+     */
     public static void printMarked(int index, String line) {
         if (line.startsWith("mark")) {
             System.out.println("marked it for ya <3");
@@ -72,6 +87,11 @@ public class Task {
         }
     }
 
+    /**
+     * detects and print the tasks containing the keyword after the command "find"
+     * if there is no matching task, print "No matching tasks found."
+     * @param line: user input
+     */
     public static void findTask(String line){
         boolean found = false;
         String value = line.substring(5).trim();
@@ -96,7 +116,11 @@ public class Task {
     public String toString() {
         return ("[" + getMark() + "] " + desc);
     }
-    
+
+    /**
+     * writes the tasks in the list to a file
+     * @throws IOException
+     */
     public static void writeToFile() throws IOException {
         File file = new File("data/output.txt");
         file.getParentFile().mkdirs(); // Ensure directory exists

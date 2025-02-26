@@ -21,6 +21,9 @@ public class chatBBG {
         System.out.println("You look lonely, I can fix that");
     }
 
+    /**
+     * Saves the tasks to a file and prints a goodbye message
+     */
     public static void goodbye(){
         System.out.println("Shutting down...");
         try {

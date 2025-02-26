@@ -42,7 +42,7 @@ public class Storage {
         File f = new File("data/output.txt");
         Scanner s = new Scanner(f);
         Task.initializeArray();
-        //iteration required so that programme knows which task to mark as done
+        //iteration required so that program knows which task to mark as done
         int iteration = 0;
         while (s.hasNextLine()) {
             String line = s.nextLine();
