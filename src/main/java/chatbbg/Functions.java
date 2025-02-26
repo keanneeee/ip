@@ -46,6 +46,8 @@ public class Functions extends Task{
                 }
             } else if (line.startsWith("event")) {
                 Event.addEvent(line);
+            } else if (line.startsWith("find")) {
+                Task.findTask(line);
             } else {
                 System.out.println("Please enter a valid command");
             }

@@ -1,2 +1,3 @@
 T | 0 | nigaga
-T | 0 | fell
+D | 0 | niganogia  | 25 afgoi
+D | 0 | oaifgbnq  | 249

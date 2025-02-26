@@ -11,7 +11,7 @@ public class Task {
     //protected static Task[] tasks = new Task[100];
     public static int totalTasks = 0;
     protected String desc;
-    protected static boolean isDone;
+    protected boolean isDone;
     protected String type;
 
     public static void initializeArray() {
@@ -20,11 +20,11 @@ public class Task {
 
     public Task(String desc) {
         this.desc = desc;
-        isDone = false;
+        this.isDone = false;
         //this.type = "T";
     }
 
-    public static String getMark() {
+    public String getMark() {
         return isDone ? "X" : " ";
     }
 
@@ -69,6 +69,27 @@ public class Task {
         } else if (line.startsWith("unmark")) {
             System.out.println("unmarked it for ya ;)");
             System.out.println(tasks.get(index).toString());
+        }
+    }
+
+    public static void findTask(String line){
+        boolean found = false;
+        String value = line.substring(5).trim();
+        for (int i = 0; i < totalTasks; i++){
+            if (tasks.get(i).desc.contains(value)){
+                found = true;
+                break;
+            }
+        }
+        if (!found){
+            System.out.println("No matching tasks found.");
+        } else {
+            System.out.println("Here are the matching tasks in your list:");
+            for (int i = 0; i < totalTasks; i++) {
+                if (tasks.get(i).desc.contains(value)) {
+                    System.out.println(tasks.get(i).toString());
+                }
+            }
         }
     }
 
