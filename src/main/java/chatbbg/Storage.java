@@ -57,7 +57,12 @@ public class Storage {
         s.close();
     }
 
-
+    /**
+     * Processes the text from the file
+     * @param parts
+     * @param iteration
+     * @throws EmptyTodoException
+     */
     public static void processFileText (String[] parts, int iteration) throws EmptyTodoException {
         String command;
         switch (parts[0].trim().charAt(0)) {
