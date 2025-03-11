@@ -23,6 +23,9 @@ public class Storage {
         }
     }
 
+    /**
+     * Creates or reads the output file
+     */
     public static void createOrReadOutputFile () {
 
         File f = new File("data/output.txt");
@@ -58,7 +61,7 @@ public class Storage {
     }
 
     /**
-     * Processes the text from the file
+     * Processes the text from the files
      * @param parts
      * @param iteration
      * @throws EmptyTodoException
