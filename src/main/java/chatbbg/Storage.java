@@ -58,7 +58,7 @@ public class Storage {
     }
 
     /**
-     * Processes the text from the file
+     * Processes the text from the files
      * @param parts
      * @param iteration
      * @throws EmptyTodoException
