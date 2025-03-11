@@ -89,7 +89,7 @@ public class Task {
 
     /**
      * detects and print the tasks containing the keyword after the command "find"
-     * if there is no matching task, print "No matching tasks found."
+     * if there is no matching task, print the sentence "No matching tasks found."
      * @param line: user input
      */
     public static void findTask(String line){
