@@ -23,6 +23,9 @@ public class Storage {
         }
     }
 
+    /**
+     * Creates or reads the output file
+     */
     public static void createOrReadOutputFile () {
 
         File f = new File("data/output.txt");
