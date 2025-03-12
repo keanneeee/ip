@@ -89,7 +89,7 @@ public class Task {
 
     /**
      * detects and print the tasks containing the keyword after the command "find"
-     * if there is no matching task, print "No matching tasks found."
+     * if there is no matching task, print the sentence "No matching tasks found."
      * @param line: user input
      */
     public static void findTask(String line){
@@ -104,7 +104,7 @@ public class Task {
         if (!found){
             System.out.println("No matching tasks found.");
         } else {
-            System.out.println("Here are the matching tasks in your list:");
+            System.out.println("Here are the matching tasks in your list babe:");
             for (int i = 0; i < totalTasks; i++) {
                 if (tasks.get(i).desc.contains(value)) {
                     System.out.println(tasks.get(i).toString());
