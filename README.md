@@ -1,26 +1,83 @@
-# Duke project template
+# JOI - Task & Deadline Manager
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+JOI is a **command-line tool** that helps you manage your tasks and deadlines efficiently. Designed to be **simple and intuitive**, JOI allows you to focus on what’s important without unnecessary complexity.
 
-## Setting up in Intellij
+## 🚀 Features
+- **Task Management**: Add, delete, and list tasks with ease.
+- **Deadline Tracker**: Keep track of deadlines using intuitive commands.
+- **Event Scheduling**: Plan events with start and end dates.
+- **Task Status Management**: Mark tasks as completed or incomplete.
+- **Task Searching**: Quickly find tasks by keywords.
+- **Persistent Storage**: Saves your tasks so they remain available even after restarting.
 
-Prerequisites: JDK 17, update Intellij to the most recent version.
+## 🛠 Installation
 
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
-1. Open the project into Intellij as follows:
-   1. Click `Open`.
-   1. Select the project directory, and click `OK`.
-   1. If there are any further prompts, accept the defaults.
-1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
-   In the same dialog, set the **Project language level** field to the `SDK default` option.
-1. After that, locate the `src/main/java/Duke.java` file, right-click it, and choose `Run Duke.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/keanneeee/ip.git
    ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
+2. Navigate into the project directory:
+   ```sh
+   cd joi
+   ```
+3. Compile the Java files:
+   ```sh
+   javac -d bin -sourcepath src src/chatbbg/chatBBG.java
+   ```
+4. Run JOI:
+   ```sh
+   java -cp bin chatbbg.chatBBG
    ```
 
-**Warning:** Keep the `src\main\java` folder as the root folder for Java files (i.e., don't rename those folders or move Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle) expect to find Java files.
+## 📖 Usage
+JOI operates through simple **command-line inputs**:
+
+```sh
+list                 # Displays all tasks
+
+todo <task name>     # Adds a new to-do task
+
+deadline <task> /by <date>  # Adds a deadline task
+
+event <task> /from <start> /to <end>  # Adds an event task
+
+mark <task number>   # Marks a task as completed
+
+unmark <task number> # Marks a task as incomplete
+
+delete <task number> # Deletes a task
+
+find <keyword>       # Finds tasks containing the keyword
+
+goodbye              # Exits JOI and saves tasks
+```
+
+## 🏗 Project Structure
+```sh
+📁 joi
+├── 📁 src
+│   ├── chatbbg/
+│   │   ├── chatBBG.java  # Main chatbot logic
+│   │   ├── Extractor.java # Extracts user input details
+│   │   ├── Functions.java # Handles user commands
+│   │   ├── Storage.java  # Manages file storage
+│   │   ├── tasktypes/
+│   │   │   ├── Task.java
+│   │   │   ├── Todo.java
+│   │   │   ├── Deadline.java
+│   │   │   ├── Event.java
+└── 📁 data (Created at runtime to store tasks)
+```
+
+## 🎯 Future Enhancements
+- Implement **natural language processing** for more flexible commands.
+- Add **GUI support** for an intuitive user interface.
+- Support **task priorities** and **reminders**.
+
+## 🤝 Contributing
+We welcome contributions! Feel free to submit issues or pull requests.
+
+---
+💡 **"I'm JOI. You look lonely, I can fix that."** 💡
+```
+
