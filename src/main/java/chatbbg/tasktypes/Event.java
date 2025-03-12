@@ -28,7 +28,7 @@ public class Event extends Task{
      * @param end the end date of the Event task
      */
     public static void printEvent(String Event, String start, String end){
-        System.out.println("gotchu x, this EVENT task was added to the list:");
+        System.out.println("gotcha x, this EVENT task was added to the list:");
         System.out.println("[E][ ] " + Event + "(from: " + start + " to " + end + ")");
         System.out.println("anything else?");
     }
